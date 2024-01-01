@@ -27,7 +27,7 @@
             text-align: center;
             padding-top:40px;
         }
-        .h2_font{
+        .h1_font{
             padding-bottom: 40px;
             font-size: 40px;
         }
@@ -66,34 +66,60 @@
             
           </div>
           @endif
-            <div class="div_center">
-                <h2 class="h2_font">Add Category</h2>
-                <form action="/category" method="POST">
-                @csrf
-                    
-                    <input type="text" name="category_name" placeholder="Write category name"></input>
-                    <button type="submit" class="btn btn-primary" name="Submit" value="Add Category">Add Category</button>
-                </form>
+          <div class="div_center">
+            <h1 class="h1_font">Add Product</h1>
+
+            <div>
+            <label>Product Title</label>
+            <input type="text" name="product_title" placeholder="Write Product Title">
             </div>
 
-            <table class="category_table">
-              <tr>
-                <td>Category Name</td>
-                <td>Action</td>
-              </tr>
+            <div>
+            <label>Product Description</label>
+            <input type="text" name="product_description" placeholder="Write Product Description">
+            </div>
 
-              @foreach($category as $category)
-              <tr>
-                <td>{{$category->category_name}}</td>
-                <td><a href="{{url('delete_category', $category->id)}}" onclick="return confirm('Are you sure you want to delete this category?')" class="btn btn-danger">Delete</a></td>
-              </tr>
-              @endforeach
-            </table>
+            <div>
+            <label>Product Image</label>
+            <input type="file" name="image">
+            </div>
+
+            <label>Product Category</label>
+            <select>
+                <option>Shirt</option>
+
+            </select>
+            </div>
+
+            <div>
+            <label>Quantity</label>
+            <input type="number" name="quantity" placeholder="Write Quantity">
+            </div>
+
+            <label>Price</label>
+            <input type="number" name="price" placeholder="Write Price">
+            </div>
+
+            <label>Discounted Price</label>
+            <input type="text" name="discounted_price" placeholder="Write Discounted Price">
+            </div>
+            
+            
+            
+
+
           </div>
-        </div>
-          <!-- content-wrapper ends -->
+
+
+
+
+
+
+
+
+                     <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
-          @include('admin.footer')
+          <!--@include('admin.footer') -->
           <!-- partial -->
         </div>
         <!-- main-panel ends -->
@@ -102,7 +128,7 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <@include('admin.script')
+    @include('admin.script')
     <!-- End custom js for this page -->
   </body>
 </html>
