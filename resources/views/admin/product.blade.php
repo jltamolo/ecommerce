@@ -93,11 +93,6 @@
             </div>
 
             <div class="div_design">
-            <label>Product Image</label>
-            <input type="file" name="product_image" required>
-            </div>
-
-            <div class="div_design">
             <label>Product Category</label>
             <select name="category" required>
                 <option value="" selected="">Add a category here</option>
@@ -119,7 +114,12 @@
             
             <div class="div_design">
             <label>Discounted Price</label>
-            <input type="text" name="discounted_price" placeholder="Write Discounted Price">
+            <input type="number" name="discounted_price" placeholder="Write Discounted Price">
+            </div>
+
+            <div class="div_design">
+            <label>Product Image</label>
+            <input type="file" name="product_image" required>
             </div>
 
             <div class="div_design">

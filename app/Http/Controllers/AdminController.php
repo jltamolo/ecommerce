@@ -31,13 +31,24 @@ class AdminController extends Controller
         return view('admin.product', compact('category'));
     }
     public function add_product(Request $req){
+
+        $req->validate([
+            'product_title' => 'required|string|max:255',
+            'product_description' => 'required|string',
+            'category' => 'required|string|max:255',
+            'quantity' => 'required|integer|min:1',
+            'price' => 'required|numeric|min:0',
+            'discounted_price' => 'nullable|numeric|min:0',
+            'product_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust max file size as needed
+        ]);
+        
         $product = new Product;
         $product->product_title=$req->product_title;
-        $product->description=$req->description;
+        $product->description=$req->product_description;
         $product->category=$req->category;
         $product->quantity=$req->quantity;
         $product->price=$req->price;
-        $product->discount_price=$req->discount_price;
+        $product->discount_price=$req->discounted_price;
 
         $image=$req->product_image;
         $imagename=time().'.'.$image->getClientOriginalExtension();
