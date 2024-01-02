@@ -102,6 +102,7 @@
                 @endforeach
             </select>
             </div>
+            
             <div class="div_design">
             <label>Quantity</label>
             <input type="number" name="quantity" placeholder="Write Quantity" required>
