@@ -148,9 +148,14 @@
                   <p class="p-3 mb-0 text-center">See all notifications</p>
                 </div>
               </li>
-              <li>
-              <x-app-layout>
-              </x-app-layout>
+              <li class="nav-item">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <input type="submit" value="Logout">
+
+                         </form>
               </li>
+              
           </div>
         </nav>

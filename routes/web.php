@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +25,11 @@ Route::middleware([
     })->name('dashboard');
 });
 Route::get('redirect', [HomeController::class, 'redirect']);
+Route::get('/view_category', [AdminController::class, 'view_category']);
+Route::post('/category', [AdminController::class, 'category']);
+Route::get('/delete_category/{id}', [AdminController::class, 'delete_category']);
+Route::get('/view_product', [AdminController::class, 'view_product']);
+Route::post('/add_product', [AdminController::class, 'add_product']);
+Route::get('/show_product', [AdminController::class, 'show_product']);
+Route::get('/delete_product/{id}', [AdminController::class, 'delete_product']); 
+
