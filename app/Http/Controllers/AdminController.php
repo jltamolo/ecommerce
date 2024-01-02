@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Product;
 
 class AdminController extends Controller
 {
@@ -30,7 +31,21 @@ class AdminController extends Controller
         return view('admin.product', compact('category'));
     }
     public function add_product(Request $req){
-        return view('admin.product');
+        $product = new Product;
+        $product->product_title=$req->product_title;
+        $product->description=$req->description;
+        $product->category=$req->category;
+        $product->quantity=$req->quantity;
+        $product->price=$req->price;
+        $product->discount_price=$req->discount_price;
+
+        $image=$req->product_image;
+        $imagename=time().'.'.$image->getClientOriginalExtension();
+        $req->product_image->move('product', $imagename);
+        $product->image=$imagename;
+
+        $product->save();
+        return redirect()->back()->with('message','Product successfully');
     }
 
 }
