@@ -68,5 +68,9 @@ class AdminController extends Controller
         $product->delete();
         return redirect()->back()->with('message','Product deleted successfully');
     }
+    public function update_product($id){
+        $product = product::find($id);
+        return view ('admin.update_product', compact('product'));
+    }
 
 }
