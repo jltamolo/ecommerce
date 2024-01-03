@@ -40,14 +40,22 @@ class HomeController extends Controller
             $cart->address = $user->address;
             $cart->user_id = $user->id;
             $cart->product_title = $product->product_title;
-            $cart->price = $product->price;
+
+            if($product->discount_price!=null){
+                $cart->price = $product->discount_price * $req->quantity;
+
+            }
+            else{
+                $cart->price = $product->price * $req->quantity;
+            }
+
             $cart->quantity = $req->quantity;
             $cart->image = $product->image;
             $cart->product_id = $product->id;
 
             $cart->save();
             return redirect()->back()->with('message','Successfully added to cart'); 
-            
+
             
 
 
