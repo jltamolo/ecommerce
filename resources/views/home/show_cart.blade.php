@@ -21,6 +21,20 @@
       <!-- responsive style -->
       <link href="home/css/responsive.css" rel="stylesheet" />
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+      <style>
+        .center{
+            margin: auto;
+            width:50%;
+            text-align: center;
+            padding: 30px;
+
+        }
+        table, th, td{
+            border: 1px solid black;
+
+
+        }
+      </style>
 
    </head>
    <body>
@@ -28,30 +42,37 @@
         <!-- header section strats -->
             @include('home.header')
         <!-- end header section -->
+        <h2>Cart</h2>
+      <div class="center">
+            <table>
+                <tr>
+                    <th>Product Title</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Product Image</th>
+                    <th>Action</th>
+                    
+                </tr>
+              <?php $total_price=0 ?>
+              @foreach ($cart as $cart)
+                <tr>
+                    <td>{{$cart->product_title}}</td>
+                    <td>{{$cart->quantity}}</td>
+                    <td>{{$cart->price}}</td>
+                    <td><img style="width: 50px; height:50px;"src="/product/{{$cart->image}}"></td>
+                    <td></td>
+                
+        
+                </tr>
+                <?php $total_price= $total_price + $cart->price ?>
+                @endforeach
+            </table>
 
-        <!-- slider section -->
-            @include('home.slider')
-        <!-- end slider section -->
-            
-         <!-- why section -->
-            @include('home.why')
-         <!-- end why section -->
-        
-        <!-- arrival section -->
-            @include('home.arrival')
-        <!-- end arrival section -->
-        
-        <!-- product section -->
-            @include('home.product')
-        <!-- end product section -->
+            <div>
+                    <h3>Total price: {{$total_price}}</h3>
 
-        <!-- subscribe section -->
-            @include('home.subscribe')
-        <!-- end subscribe section -->
-        
-        <!-- client section -->
-            @include('home.subscribe')
-        <!-- end client section -->
+                </div>
+      </div>
 
         <!-- footer start -->
             @include('home.footer')
