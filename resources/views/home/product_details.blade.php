@@ -28,13 +28,13 @@
             @include('home.header')
         <!-- end header section -->
 
-        <div class="col-sm-6 col-md-4 col-lg-4">
+        <div class="col-sm-6 col-md-4 col-lg-4" style="margin:auto; width:50%; padding:30px;">
                   <div class="box">
                      <div class="option_container">
                      
                      </div>
-                     <div class="img-box">
-                        <img src="product/{{$product->image}}" alt="" width="600px" height="600px">
+                     <div class="img-box" style="padding:20px">
+                        <img src="product/{{$product->image}}" alt="" width="400px" height="400px">
                      </div>
                      <div class="detail-box">
                         <h5>
@@ -53,6 +53,11 @@
                         Ksh.{{$product->price}}
                         </h6>
                         @endif
+
+                        <h6>Category: {{$product->category}}</h6>
+                        <h6>Product description: {{$product->description}}</h6>
+                        <h6>Quantity: {{$product->quantity}}</h6>
+                        <a href="#" class="btn btn-primary">Add to cart</a>
                        
                      </div>
                   </div>
