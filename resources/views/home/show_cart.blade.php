@@ -60,7 +60,7 @@
                     <td>{{$cart->quantity}}</td>
                     <td>{{$cart->price}}</td>
                     <td><img style="width: 50px; height:50px;"src="/product/{{$cart->image}}"></td>
-                    <td></td>
+                    <td><a class="btn btn-danger" href="">Remove Product</a></td>
                 
         
                 </tr>
