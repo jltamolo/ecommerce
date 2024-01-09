@@ -24,7 +24,7 @@
       <style>
         .center{
             margin: auto;
-            width:50%;
+            width:70%;
             text-align: center;
             padding: 30px;
 
@@ -42,6 +42,13 @@
         <!-- header section strats -->
             @include('home.header')
         <!-- end header section -->
+        @if(session()->has('message'))
+          <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            {{session()->get('message')}}
+            
+          </div>
+          @endif
         <h2>Cart</h2>
       <div class="center">
             <table>
@@ -60,7 +67,7 @@
                     <td>{{$cart->quantity}}</td>
                     <td>{{$cart->price}}</td>
                     <td><img style="width: 50px; height:50px;"src="/product/{{$cart->image}}"></td>
-                    <td><a class="btn btn-danger" href="">Remove Product</a></td>
+                    <td><a class="btn btn-danger" href="{{url('/remove_cart', $cart->id)}}" onclick="return confirm('Are you sure you to remove this item from cart ?')">Remove Product</a></td>
                 
         
                 </tr>
